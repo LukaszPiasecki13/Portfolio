@@ -16,31 +16,40 @@ import { ExternalLink, Github } from "lucide-react";
 export function ProjectsSection() {
   const projects = [
     {
-      title: "E-commerce Platform",
+      title: "Fund Tracker",
       description:
-        "Kompleksowa platforma e-commerce z panelem administracyjnym, systemem płatności i zarządzaniem magazynem.",
+        "Financial investment tracking app using Django REST backend with JWT authentication and React frontend built Material-UI. Features include real-time portfolio analytics powered by Recharts, Yahoo Finance API integration, and secure state management with Axios.",
       image: "/placeholder.svg?height=200&width=400",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
+      technologies: ["Django REST", "React.js", "Yahoo API", "Pandas", "JWT", "PostgreSQL"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/LukaszPiasecki13/Django_React_FoundTracker",
+    },
+    {
+      title: "Debug Reporting Tool - internal application",
+      description:
+        "A tool for reporting and analyzing bugs in web applications, with real-time collaboration features.",
+      image: "public/abb.png",
+      technologies: [
+        "Django REST",
+        "Pandas",
+        "Numpy",
+        "Celery",
+        "Angular",
+        "PostgreSQL",
+      ],
       liveUrl: "#",
       githubUrl: "#",
     },
+
     {
-      title: "Task Management App",
+      title: "URL Shortener",
       description:
-        "Aplikacja do zarządzania projektami i zadaniami z funkcjami współpracy zespołowej i raportowania.",
-      image: "/placeholder.svg?height=200&width=400",
-      technologies: ["Next.js", "TypeScript", "Prisma", "Tailwind"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Weather Dashboard",
-      description:
-        "Interaktywny dashboard pogodowy z prognozami, mapami i personalizowanymi alertami.",
-      image: "/placeholder.svg?height=200&width=400",
-      technologies: ["React", "D3.js", "Express", "MongoDB"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "A full-stack URL shortening service featuring a Django REST API backend and a modern React frontend. The backend includes rate limiting per IP address using Redis to prevent abuse",
+      image: "public/shortener.png",
+      technologies: ["Django REST", "React.js", "PostgreSQL", "Redis"],
+      liveUrl:
+        "https://shortener-mgn9weh6z-lukaszpiasecki99-gmailcoms-projects.vercel.app/",
+      githubUrl: "https://github.com/LukaszPiasecki13/Shortener",
     },
   ];
 
@@ -52,7 +61,7 @@ export function ProjectsSection() {
     >
       <Box textAlign="center" mb={6}>
         <Typography variant="h3" fontWeight="bold" gutterBottom>
-          My Projects
+          My Portfolio
         </Typography>
         <Typography
           variant="h6"
@@ -61,8 +70,8 @@ export function ProjectsSection() {
           mx="auto"
           mb={6}
         >
-          Oto wybrane projekty, które pokazują moje umiejętności i doświadczenie
-          w różnych technologiach i dziedzinach.
+          Here you can find some of my recent projects and startup ideas I'm
+          currently exploring and developing.
         </Typography>
       </Box>
 
@@ -75,6 +84,10 @@ export function ProjectsSection() {
                 overflow: "hidden",
                 transition: "box-shadow 0.3s",
                 "&:hover": { boxShadow: 6 },
+                maxWidth: 360,
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
               }}
             >
               <Box
@@ -86,7 +99,7 @@ export function ProjectsSection() {
               >
                 <CardMedia
                   component="img"
-                  image={project.image || "/placeholder.svg"}
+                  image={project.image}
                   alt={project.title}
                   sx={{
                     position: "absolute",
@@ -94,7 +107,7 @@ export function ProjectsSection() {
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover",
+                    objectFit: "fill",
                     transition: "transform 0.3s",
                     "&:hover": {
                       transform: "scale(1.05)",
@@ -111,30 +124,40 @@ export function ProjectsSection() {
                 }
               />
 
-              <CardContent>
-                <Typography variant="body2" color="text.secondary" mb={2}>
-                  {project.description}
-                </Typography>
+              <CardContent
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  flexGrow: 1,
+                }}
+              >
+                <Box sx={{ flexGrow: 1, mb: 2 }}>
+                  <Typography variant="body2" color="text.secondary">
+                    {project.description}
+                  </Typography>
+                </Box>
 
-                <Stack direction="row" spacing={1} flexWrap="wrap" mb={2}>
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  flexWrap="wrap"
+                  mb={2}
+                  mt="auto"
+                  sx={{ rowGap: 1 }}
+                >
                   {project.technologies.map((tech, i) => (
-                    <Chip
-                      key={i}
-                      label={tech}
-                      size="small"
-                      color="primary"
-                      sx={{ mb: 0.5 }}
-                    />
+                    <Chip key={i} label={tech} size="small" color="primary" />
                   ))}
                 </Stack>
 
-                <Stack direction="row" spacing={2}>
+                <Stack direction="row" spacing={2} mt="auto">
                   <Button
                     variant="contained"
                     size="small"
-                    href={project.liveUrl}
+                    href={project.liveUrl !== "#" ? project.liveUrl : undefined}
                     target="_blank"
                     rel="noopener noreferrer"
+                    disabled={project.liveUrl === "#"}
                     startIcon={<ExternalLink size={16} />}
                   >
                     Demo
@@ -143,9 +166,12 @@ export function ProjectsSection() {
                   <Button
                     variant="outlined"
                     size="small"
-                    href={project.githubUrl}
+                    href={
+                      project.githubUrl !== "#" ? project.githubUrl : undefined
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
+                    disabled={project.githubUrl === "#"}
                     startIcon={<Github size={16} />}
                   >
                     Code
