@@ -1,4 +1,4 @@
-import React from "react"
+import { useRef, useState } from "react";
 import {
   Box,
   Typography,
@@ -10,30 +10,56 @@ import {
   Button,
   InputAdornment,
   Link,
-} from "@mui/material"
-import { Mail, Phone, LocationOn, Send } from "@mui/icons-material"
+} from "@mui/material";
+import { Mail, Phone, LocationOn, Send } from "@mui/icons-material";
+import emailjs from "emailjs-com";
 
 export function ContactSection() {
+  const formRef = useRef();
+  const [emailSent, setEmailSent] = useState(false);
   const contactInfo = [
     {
       icon: <Mail color="primary" />,
       title: "Email",
-      value: "jan.kowalski@example.com",
-      href: "mailto:jan.kowalski@example.com",
+      value: "lukasz.piasecki99@gmail.com",
+      href: "mailto:lukasz.piasecki99@gmail.com",
     },
     {
       icon: <Phone color="primary" />,
-      title: "Telefon",
-      value: "+48 123 456 789",
-      href: "tel:+48123456789",
+      title: "Phone",
+      value: "+48 736 734 593",
+      href: "tel:+48736734593",
     },
     {
       icon: <LocationOn color="primary" />,
-      title: "Lokalizacja",
-      value: "Warszawa, Polska",
+      title: "Locations",
+      value: "Poland, Netherlands",
       href: "#",
     },
-  ]
+  ];
+
+  const handleSendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_a8o1lbs",
+        "template_sijpyek",
+        formRef.current,
+        "nRagWkW5Cw17IUA37"
+      )
+      .then(
+        (result) => {
+          setEmailSent(true);
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Something went wrong. Please try again.");
+        }
+      );
+
+    e.target.reset();
+  };
 
   return (
     <Box
@@ -43,7 +69,7 @@ export function ContactSection() {
     >
       <Box textAlign="center" mb={8}>
         <Typography variant="h3" fontWeight="bold" gutterBottom>
-          Kontakt
+          Contact
         </Typography>
         <Typography
           variant="h6"
@@ -51,15 +77,21 @@ export function ContactSection() {
           maxWidth={700}
           mx="auto"
         >
-          Masz projekt do realizacji lub chcesz porozmawiać o współpracy? Skontaktuj się ze mną!
+          Have a project you'd like to pursue or want to discuss collaboration?
+          Contact me!
         </Typography>
       </Box>
 
-      <Grid container spacing={6}>
+      <Grid
+        container
+        spacing={6}
+        justifyContent="space-between"
+        alignItems="flex-start"
+      >
         {/* Info kontaktowe */}
         <Grid item xs={12} lg={6}>
           <Typography variant="h5" fontWeight="600" mb={4}>
-            Informacje kontaktowe
+            Contact Information
           </Typography>
           <Box display="flex" flexDirection="column" gap={3} mb={4}>
             {contactInfo.map(({ icon, title, value, href }, index) => (
@@ -91,90 +123,88 @@ export function ContactSection() {
               </Box>
             ))}
           </Box>
+        </Grid>
 
-          <Box
-            sx={{
-              bgcolor: "primary.lighter",
-              borderRadius: 3,
-              p: 3,
-            }}
-          >
-            <Typography fontWeight={600} mb={1}>
-              Dostępność
+        {emailSent ? (
+          <Box textAlign="center" py={4}>
+            <Typography variant="h6" color="success.main" fontWeight="bold">
+              ✅ Message sent successfully!
             </Typography>
-            <Typography color="text.secondary" variant="body2">
-              Jestem otwarty na nowe projekty i współpracę. Odpowiadam na wiadomości w ciągu 24 godzin.
+            <Typography variant="body1" color="text.secondary" mt={1}>
+              Thank you for reaching out! I will get back to you as soon as
+              possible.
             </Typography>
           </Box>
-        </Grid>
-
-        {/* Formularz kontaktowy */}
-        <Grid item xs={12} lg={6}>
-          <Card>
-            <CardHeader
-              title={
-                <Typography variant="h6" fontWeight="bold">
-                  Wyślij wiadomość
-                </Typography>
-              }
-            />
-            <CardContent>
-              <Box
-                component="form"
-                noValidate
-                autoComplete="off"
-                sx={{ display: "flex", flexDirection: "column", gap: 3 }}
-              >
-                <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      label="Imię i nazwisko"
-                      placeholder="Jan Kowalski"
-                      variant="outlined"
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      fullWidth
-                      label="Email"
-                      type="email"
-                      placeholder="jan@example.com"
-                      variant="outlined"
-                    />
-                  </Grid>
-                </Grid>
-
-                <TextField
-                  fullWidth
-                  label="Temat"
-                  placeholder="Współpraca przy projekcie"
-                  variant="outlined"
-                />
-
-                <TextField
-                  fullWidth
-                  label="Wiadomość"
-                  placeholder="Opisz swój projekt lub zadaj pytanie..."
-                  variant="outlined"
-                  multiline
-                  rows={5}
-                />
-
-                <Button
-                  type="submit"
-                  variant="contained"
-                  size="large"
-                  startIcon={<Send />}
-                  fullWidth
+        ) : (
+          <Grid>
+            <Card>
+              <CardHeader
+                title={
+                  <Typography variant="h6" fontWeight="bold">
+                    Send a Message
+                  </Typography>
+                }
+              />
+              <CardContent>
+                <Box
+                  component="form"
+                  noValidate
+                  autoComplete="off"
+                  sx={{ display: "flex", flexDirection: "column", gap: 3 }}
+                  ref={formRef}
+                  onSubmit={handleSendEmail}
                 >
-                  Wyślij wiadomość
-                </Button>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label="Name"
+                        variant="outlined"
+                        name="name"
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <TextField
+                        fullWidth
+                        label="Email"
+                        name="email"
+                        type="email"
+                        variant="outlined"
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <TextField
+                    fullWidth
+                    label="Title"
+                    variant="outlined"
+                    name="title"
+                  />
+
+                  <TextField
+                    fullWidth
+                    label="Message"
+                    variant="outlined"
+                    name="message"
+                    multiline
+                    rows={5}
+                  />
+
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    size="large"
+                    startIcon={<Send />}
+                    fullWidth
+                  >
+                    Send
+                  </Button>
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+        )}
       </Grid>
     </Box>
-  )
+  );
 }

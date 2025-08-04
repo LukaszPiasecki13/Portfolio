@@ -162,30 +162,45 @@ export function SkillsSection() {
             margin: "8px auto",
             paddingLeft: "20px",
             color: "#6b7280",
+            textAlign: "left",
           }}
         >
           <li>
-            <strong>“Clean Code”</strong> – Robert C. Martin
+            <strong>“Clean Code in Python”</strong> – Mariano Anaya
           </li>
           <li>
             <strong>
-              “Design Patterns: Elements of Reusable Object-Oriented Software”
+              “Effective Python: 90 Specific Ways to Write Better Python”
             </strong>{" "}
-            – Gamma, Helm, Johnson, Vlissides
+            – Brett Slatkin
+          </li>
+
+          <li>
+            <strong>“Python Object-Oriented Programming”</strong> – Steven F.
+            Lott, Dusty Phillips
+          </li>
+          <li>
+            <strong>“Django 4 By Example”</strong> – Antonio Melé
+          </li>
+          <li>
+            <strong>“Machine Learning with Python Cookbook”</strong> – Chris
+            Albon
           </li>
           <li>
             <strong>
-              “Python Tricks: A Buffet of Awesome Python Features”
+              “Introducing Python: Modern Computing in Simple Packages”
             </strong>{" "}
-            – Dan Bader
+            – Bill Lubanovic
           </li>
           <li>
-            <strong>“The Pragmatic Programmer”</strong> – David Thomas, Andrew
-            Hunt
+            <strong>“Possible Minds: 25 Ways of Looking at AI”</strong> – John
+            Brockman
           </li>
           <li>
-            <strong>“Test-Driven Development with Python”</strong> – Harry J.W.
-            Percival
+            <strong>
+              “Financial Theory with Python: A Gentle Introduction”
+            </strong>{" "}
+            – Yves Hilpisch
           </li>
         </ul>
       </Box>
