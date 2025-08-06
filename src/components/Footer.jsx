@@ -1,6 +1,13 @@
-import React from "react"
-import { Box, Typography, Grid, Link, IconButton, Divider } from "@mui/material"
-import { GitHub, LinkedIn, Mail, Favorite } from "@mui/icons-material"
+import React from "react";
+import {
+  Box,
+  Typography,
+  Grid,
+  Link,
+  IconButton,
+  Divider,
+} from "@mui/material";
+import { GitHub, LinkedIn, Mail, Favorite } from "@mui/icons-material";
 
 export default function Footer() {
   return (
@@ -15,15 +22,13 @@ export default function Footer() {
     >
       <Box maxWidth={1200} mx="auto">
         <Grid container spacing={8}>
-          {/* Brand */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} maxWidth={500}>
             <Typography
               variant="h4"
               fontWeight="bold"
               gutterBottom
               sx={{
-                background:
-                  "linear-gradient(to right, #3b82f6, #8b5cf6)", // blue to purple
+                background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 display: "inline-block",
@@ -32,23 +37,22 @@ export default function Footer() {
               Portfolio
             </Typography>
             <Typography color="grey.400" mt={2}>
-              Full Stack Developer tworzący nowoczesne aplikacje webowe z pasją do czystego kodu i innowacyjnych
-              rozwiązań.
+              A passionate Software Developer. If you're interested in working
+              with me or have any questions, please contact me.
             </Typography>
           </Grid>
 
-          {/* Quick Links */}
           <Grid item xs={12} md={4}>
             <Typography variant="h6" fontWeight="600" gutterBottom>
-              Szybkie linki
+              Quick links
             </Typography>
             <Box display="flex" flexDirection="column" gap={1}>
               {[
                 { href: "#home", label: "Home" },
-                { href: "#about", label: "O mnie" },
-                { href: "#projects", label: "Projekty" },
-                { href: "#skills", label: "Umiejętności" },
-                { href: "#contact", label: "Kontakt" },
+                { href: "#about", label: "About" },
+                { href: "#projects", label: "Projects" },
+                { href: "#skills", label: "Skills" },
+                { href: "#contact", label: "Contact" },
               ].map(({ href, label }) => (
                 <Link
                   key={href}
@@ -66,37 +70,52 @@ export default function Footer() {
             </Box>
           </Grid>
 
-          {/* Social Links */}
-          <Grid item xs={12} md={4}>
-            <Typography variant="h6" fontWeight="600" gutterBottom>
-              Znajdź mnie
-            </Typography>
-            <Box display="flex" gap={2}>
-              <IconButton
-                component="a"
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{ color: "grey.400", "&:hover": { color: "common.white" } }}
-              >
-                <GitHub />
-              </IconButton>
-              <IconButton
-                component="a"
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{ color: "grey.400", "&:hover": { color: "common.white" } }}
-              >
-                <LinkedIn />
-              </IconButton>
-              <IconButton
-                component="a"
-                href="mailto:contact@example.com"
-                sx={{ color: "grey.400", "&:hover": { color: "common.white" } }}
-              >
-                <Mail />
-              </IconButton>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{ display: "flex", justifyContent: "flex-end" }}
+          >
+            <Box sx={{ width: "100%", pl: { md: 30 } }}>
+              <Typography variant="h6" fontWeight="600" gutterBottom>
+                Find me on
+              </Typography>
+              <Box display="flex" gap={2} justifyContent="flex-end">
+                <IconButton
+                  component="a"
+                  href="https://github.com/LukaszPiasecki13"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    color: "grey.400",
+                    "&:hover": { color: "common.white" },
+                  }}
+                >
+                  <GitHub />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="https://www.linkedin.com/in/lukasz-piasecki-894768208/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    color: "grey.400",
+                    "&:hover": { color: "common.white" },
+                  }}
+                >
+                  <LinkedIn />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="mailto:lukasz.piasecki99@gmail.com"
+                  sx={{
+                    color: "grey.400",
+                    "&:hover": { color: "common.white" },
+                  }}
+                >
+                  <Mail />
+                </IconButton>
+              </Box>
             </Box>
           </Grid>
         </Grid>
@@ -112,11 +131,10 @@ export default function Footer() {
             gap={1}
             variant="body2"
           >
-            © 2024 Jan Kowalski. Stworzone z{" "}
-            <Favorite sx={{ color: "error.main", fontSize: 18 }} /> w React
+            © 2025 Łukasz Piasecki - Portfolio
           </Typography>
         </Box>
       </Box>
     </Box>
-  )
+  );
 }

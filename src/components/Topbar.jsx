@@ -8,19 +8,18 @@ export default function Topbar() {
       position="fixed"
       elevation={0}
       sx={{
-        bgcolor: "rgba(15, 23, 42, 0.8)", // slate-900/80
+        bgcolor: "rgba(15, 23, 42, 0.8)", 
         backdropFilter: "blur(10px)",
-        borderBottom: "1px solid rgba(100,116,139,0.2)", // slate-600/20
+        borderBottom: "1px solid rgba(100,116,139,0.2)", 
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        {/* Logo */}
         <Typography
           variant="h6"
           noWrap
           sx={{
             fontWeight: "bold",
-            background: "linear-gradient(to right, #2563eb, #14b8a6)", // blue-600 to teal-600
+            background: "linear-gradient(to right, #2563eb, #14b8a6)", 
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             fontSize: "1.5rem",
@@ -29,7 +28,7 @@ export default function Topbar() {
           Portfolio
         </Typography>
 
-        {/* Navigation Links */}
+
         <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
           {["Home", "About", "Projects", "Skills", "Contact"].map((label) => (
             <MuiLink
@@ -37,9 +36,9 @@ export default function Topbar() {
               href={`#${label.toLowerCase()}`}
               underline="none"
               sx={{
-                color: "#cbd5e1", // slate-300
+                color: "#cbd5e1", 
                 fontWeight: 500,
-                "&:hover": { color: "#60a5fa" }, // blue-400
+                "&:hover": { color: "#60a5fa" }, 
                 transition: "color 0.2s",
               }}
             >
@@ -48,11 +47,11 @@ export default function Topbar() {
           ))}
         </Box>
 
-        {/* Icons */}
+
         <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
           <IconButton
             component="a"
-            href="https://github.com"
+            href="https://github.com/LukaszPiasecki13"
             target="_blank"
             sx={{ color: "#94a3b8", "&:hover": { color: "#ffffff" } }}
           >
@@ -60,7 +59,7 @@ export default function Topbar() {
           </IconButton>
           <IconButton
             component="a"
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/lukasz-piasecki-894768208/"
             target="_blank"
             sx={{ color: "#94a3b8", "&:hover": { color: "#ffffff" } }}
           >
@@ -68,7 +67,7 @@ export default function Topbar() {
           </IconButton>
           <IconButton
             component="a"
-            href="mailto:contact@example.com"
+            href="mailto:lukasz.piasecki99@gmail.com"
             sx={{ color: "#94a3b8", "&:hover": { color: "#ffffff" } }}
           >
             <Mail fontSize="small" />

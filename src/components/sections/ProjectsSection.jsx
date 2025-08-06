@@ -19,15 +19,15 @@ export function ProjectsSection() {
       title: "Fund Tracker",
       description:
         "Financial investment tracking app using Django REST backend with JWT authentication and React frontend built Material-UI. Features include real-time portfolio analytics powered by Recharts, Yahoo Finance API integration, and secure state management with Axios.",
-      image: "/placeholder.svg?height=200&width=400",
+      image: "public/FundTracker.png",
       technologies: ["Django REST", "React.js", "Yahoo API", "Pandas", "JWT", "PostgreSQL"],
       liveUrl: "#",
       githubUrl: "https://github.com/LukaszPiasecki13/Django_React_FoundTracker",
     },
     {
-      title: "Debug Reporting Tool - internal application",
+      title: "Debug Reporting App - internal ",
       description:
-        "A tool for reporting and analyzing bugs in web applications, with real-time collaboration features.",
+        "I'm responsible for developing back-end modules based on Django REST. It offers JWT-based authentication, versioned API endpoints, Swagger documentation (drf-yasg), and integration with external REST APIs. It includes advanced data analysis using phenomenon modeling, precise error handling, and asynchronous data retrieval.",
       image: "public/abb.png",
       technologies: [
         "Django REST",

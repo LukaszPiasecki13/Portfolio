@@ -30,8 +30,7 @@ export default function Sidebar() {
       <Card sx={{ mb: 3 }}>
         <CardContent sx={{ textAlign: "center" }}>
           <Avatar
-            alt="Jan Kowalski"
-            src="src\assets\picture.png"
+            src="public\picture.png"
             sx={{ width: 96, height: 96, mx: "auto", mb: 2 }}
           >
             JK
