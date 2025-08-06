@@ -32,7 +32,7 @@ export default function Sidebar() {
        }}>
         <CardContent sx={{ textAlign: "center" }}>
           <Avatar
-            src="public\picture.png"
+            src="images/my_image.png"
             sx={{ width: 96, height: 96, mx: "auto", mb: 2 }}
           >
             JK
