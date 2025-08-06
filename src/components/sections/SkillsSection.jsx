@@ -16,8 +16,8 @@ export function SkillsSection() {
       skills: [
         { name: "Python", level: 4 },
         { name: "Django/DRF", level: 3 },
+        { name: "PyTest", level: 3 },
         { name: "PostgreSQL", level: 2 },
-        { name: "Redis", level: 1 },
         { name: "Celery", level: 1 },
       ],
     },
@@ -48,6 +48,24 @@ export function SkillsSection() {
         { name: "Azure cloud", level: 2 },
 
         { name: "Docker", level: 1 },
+      ],
+    },
+  ];
+
+  const additionalSkills = [
+    {
+      title: "Other Tools & Technologies",
+      items: [
+        "MySQL",
+        "Redis",
+        "Azure DevOps",
+        "Bash",
+        "Linux",
+        "REST API",
+        "ML",
+        "Computer Vision",
+        "Agile",
+        "Scrum",
       ],
     },
   ];
@@ -114,6 +132,51 @@ export function SkillsSection() {
                     />
                   </Box>
                 ))}
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+
+      <Grid container spacing={4} mt={4} justifyContent="center">
+        {additionalSkills.map((category, index) => (
+          <Grid item xs={12} key={`additional-skill-${index}`}>
+            <Card variant="outlined">
+              <CardHeader
+                title={
+                  <Typography variant="h6" align="center" fontWeight="bold">
+                    {category.title}
+                  </Typography>
+                }
+              />
+              <CardContent>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 1.5,
+                    justifyContent: "center",
+                  }}
+                >
+                  {category.items.map((item, itemIndex) => (
+                    <Typography
+                      key={`item-${itemIndex}`}
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{
+                        px: 1,
+                        py: 0.5,
+                        borderRadius: 1,
+                        backgroundColor: (theme) =>
+                          theme.palette.mode === "light"
+                            ? "#f0f0f0"
+                            : "#333333",
+                      }}
+                    >
+                      {item}
+                    </Typography>
+                  ))}
+                </Box>
               </CardContent>
             </Card>
           </Grid>

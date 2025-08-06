@@ -22,12 +22,14 @@ export default function Sidebar() {
         width: 320,
         p: 3,
         position: "sticky",
-        top: 96,
+        top: 65,
         height: "calc(100vh - 96px)",
         overflowY: "auto",
       }}
     >
-      <Card sx={{ mb: 3 }}>
+      <Card sx={{ mb: 2
+
+       }}>
         <CardContent sx={{ textAlign: "center" }}>
           <Avatar
             src="public\picture.png"
@@ -69,7 +71,7 @@ export default function Sidebar() {
         </CardContent>
       </Card>
 
-      <Card sx={{ mb: 3 }}>
+      <Card >
         <CardContent>
           <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
             Programming
@@ -120,89 +122,7 @@ export default function Sidebar() {
         </CardContent>
       </Card>
 
-      <Card sx={{ mb: 3 }}>
-        <CardContent>
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            Tools & Technologies
-          </Typography>
-
-
-          <Typography
-            variant="body2"
-            fontWeight="bold"
-            gutterBottom
-            sx={{ mt: 2 }}
-          >
-            Databases
-          </Typography>
-          <Stack direction="row" spacing={0} flexWrap="wrap" gap={1}>
-            {["PostgreSQL", "MySQL", "Redis"].map((item) => (
-              <Chip key={item} label={item} variant="outlined" />
-            ))}
-          </Stack>
-
-          <Typography
-            variant="body2"
-            fontWeight="bold"
-            gutterBottom
-            sx={{ mt: 2 }}
-          >
-            DevOps & Deployment
-          </Typography>
-          <Stack direction="row" spacing={0} flexWrap="wrap" gap={1}>
-            {["CI/CD", "Docker", "Azure Cloud", "Git", "Bash", "Linux"].map(
-              (item) => (
-                <Chip key={item} label={item} variant="outlined" />
-              )
-            )}
-          </Stack>
-
-
-          <Typography
-            variant="body2"
-            fontWeight="bold"
-            gutterBottom
-            sx={{ mt: 2 }}
-          >
-            Backend & Architecture
-          </Typography>
-          <Stack direction="row" spacing={0} flexWrap="wrap" gap={1}>
-            {["REST API", "Celery"].map((item) => (
-              <Chip key={item} label={item} variant="outlined" />
-            ))}
-          </Stack>
-
-
-          <Typography
-            variant="body2"
-            fontWeight="bold"
-            gutterBottom
-            sx={{ mt: 2 }}
-          >
-            Machine Learning & AI
-          </Typography>
-          <Stack direction="row" spacing={0} flexWrap="wrap" gap={1}>
-            {["PyTorch", "TensorFlow"].map((item) => (
-              <Chip key={item} label={item} variant="outlined" />
-            ))}
-          </Stack>
-
-
-          <Typography
-            variant="body2"
-            fontWeight="bold"
-            gutterBottom
-            sx={{ mt: 2 }}
-          >
-            Methodologies
-          </Typography>
-          <Stack direction="row" spacing={0} flexWrap="wrap" gap={1}>
-            {["Agile"].map((item) => (
-              <Chip key={item} label={item} variant="outlined" />
-            ))}
-          </Stack>
-        </CardContent>
-      </Card>
+      
     </Box>
   );
 }

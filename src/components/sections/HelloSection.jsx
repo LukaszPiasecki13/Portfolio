@@ -1,6 +1,6 @@
-import React from "react"
-import { Box, Typography, Button, Stack } from "@mui/material"
-import { Message, Download, KeyboardArrowDown } from "@mui/icons-material"
+import React from "react";
+import { Box, Typography, Button, Stack } from "@mui/material";
+import { Message, Download, KeyboardArrowDown } from "@mui/icons-material";
 
 export function HelloSection() {
   return (
@@ -39,27 +39,52 @@ export function HelloSection() {
             color="text.secondary" // Using MUI's secondary text color
             sx={{ mb: 4, lineHeight: 1.5 }}
           >
-            A Software Engineer with a passion for implementing ideas, creating new things, and solving problems. I specialize in Python, Django, React and QA automation.
+            A Software Engineer with a passion for implementing ideas, creating
+            new things, and solving problems. I specialize in Python, Django,
+            React and QA automation.
           </Typography>
         </Box>
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={3} justifyContent="center" mb={8}>
-          <Button variant="contained" size="large" startIcon={<Message />} sx={{ px: 5, py: 2, fontSize: "1.125rem" }}>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={3}
+          justifyContent="center"
+          mb={8}
+        >
+          <Button
+            variant="contained"
+            size="large"
+            startIcon={<Message />}
+            sx={{ px: 5, py: 2, fontSize: "1.125rem" }}
+          >
             Get In Touch
           </Button>
-          <Button variant="outlined" size="large" startIcon={<Download />} sx={{ px: 5, py: 2, fontSize: "1.125rem" }}>
+          <Button
+            variant="outlined"
+            size="large"
+            startIcon={<Download />}
+            sx={{ px: 5, py: 2, fontSize: "1.125rem" }}
+          >
             Download CV
           </Button>
         </Stack>
+
+
         <Box
           sx={{
             animation: "bounce 2s infinite",
             display: "flex",
             justifyContent: "center",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            const el = document.getElementById("about");
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth" });
+            }
           }}
         >
-          <KeyboardArrowDown sx={{ fontSize: 36, color: "text.secondary" }} /> {/* Using MUI's secondary text color */}
+          <KeyboardArrowDown sx={{ fontSize: 36, color: "text.secondary" }} />
         </Box>
-        {/* Keyframes animation */}
         <style>
           {`
             @keyframes bounce {
@@ -70,5 +95,5 @@ export function HelloSection() {
         </style>
       </Box>
     </Box>
-  )
+  );
 }
