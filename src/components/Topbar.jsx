@@ -1,25 +1,54 @@
-import React from "react"
-import { AppBar, Toolbar, Typography, Box, IconButton, Link as MuiLink } from "@mui/material"
-import { GitHub, LinkedIn, Mail } from "@mui/icons-material"
+import React from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  IconButton,
+  Link as MuiLink,
+} from "@mui/material";
+import { GitHub, LinkedIn, Mail } from "@mui/icons-material";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 
 export default function Topbar() {
+  const navigate = useNavigate();     
+  const location = useLocation();
+
+  const handleNavClick = (sectionId) => {
+    if (location.pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/", { state: { scrollTo: sectionId } });
+    }
+  };
+
   return (
     <AppBar
       position="fixed"
       elevation={0}
       sx={{
-        bgcolor: "rgba(15, 23, 42, 0.8)", 
+        bgcolor: "rgba(15, 23, 42, 0.8)",
         backdropFilter: "blur(10px)",
-        borderBottom: "1px solid rgba(100,116,139,0.2)", 
+        borderBottom: "1px solid rgba(100,116,139,0.2)",
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between" }}>
+      <Toolbar
+        sx={{
+          position: "relative",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        {/* Logo */}
         <Typography
           variant="h6"
           noWrap
           sx={{
             fontWeight: "bold",
-            background: "linear-gradient(to right, #2563eb, #14b8a6)", 
+            background: "linear-gradient(to right, #2563eb, #14b8a6)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             fontSize: "1.5rem",
@@ -28,18 +57,36 @@ export default function Topbar() {
           Portfolio
         </Typography>
 
-
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
-          {["Home", "About", "Projects", "Skills", "Certificates", "Contact"].map((label) => (
+        <Box
+          sx={{
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: { xs: "none", md: "flex" },
+            gap: 3,
+          }}
+        >
+          {[
+            "Home",
+            "About",
+            "Projects",
+            "Skills",
+            "Certificates",
+            "Contact",
+          ].map((label) => (
             <MuiLink
               key={label}
-              href={`#${label.toLowerCase()}`}
+              component="button"
+              onClick={() => handleNavClick(label.toLowerCase())}
               underline="none"
               sx={{
-                color: "#cbd5e1", 
+                color: "#cbd5e1",
                 fontWeight: 500,
-                "&:hover": { color: "#60a5fa" }, 
+                "&:hover": { color: "#60a5fa" },
                 transition: "color 0.2s",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
               }}
             >
               {label}
@@ -47,8 +94,23 @@ export default function Topbar() {
           ))}
         </Box>
 
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <MuiLink
+            component={RouterLink}
+            to="/projectapaulo"
+            underline="none"
+            sx={{
+              color: "#cbd5e1",
+              fontWeight: 500,
+              "&:hover": { color: "#60a5fa" },
+              transition: "color 0.2s",
+              display: { xs: "none", md: "inline" },
+              mr: 10,
+            }}
+          >
+            Project a Paulo
+          </MuiLink>
 
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
           <IconButton
             component="a"
             href="https://github.com/LukaszPiasecki13"
@@ -75,5 +137,5 @@ export default function Topbar() {
         </Box>
       </Toolbar>
     </AppBar>
-  )
+  );
 }

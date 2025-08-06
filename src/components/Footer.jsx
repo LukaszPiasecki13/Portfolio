@@ -52,6 +52,7 @@ export default function Footer() {
                 { href: "#about", label: "About" },
                 { href: "#projects", label: "Projects" },
                 { href: "#skills", label: "Skills" },
+                { href: "#certificates", label: "Certificates" },
                 { href: "#contact", label: "Contact" },
               ].map(({ href, label }) => (
                 <Link
