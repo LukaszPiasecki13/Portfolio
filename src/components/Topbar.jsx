@@ -30,7 +30,7 @@ export default function Topbar() {
 
 
         <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
-          {["Home", "About", "Projects", "Skills", "Contact"].map((label) => (
+          {["Home", "About", "Projects", "Skills", "Certificates", "Contact"].map((label) => (
             <MuiLink
               key={label}
               href={`#${label.toLowerCase()}`}
