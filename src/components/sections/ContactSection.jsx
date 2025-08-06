@@ -43,10 +43,10 @@ export function ContactSection() {
 
     emailjs
       .sendForm(
-        "service_a8o1lbs",
-        "template_sijpyek",
+        import.meta.env.EMAILJS_SERVICE_ID,
+        import.meta.env.EMAILJS_TEMPLATE_ID,
         formRef.current,
-        "nRagWkW5Cw17IUA37"
+        import.meta.env.EMAILJS_PUBLIC_KEY
       )
       .then(
         (result) => {
