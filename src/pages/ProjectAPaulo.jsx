@@ -190,7 +190,8 @@ export default function ProjectAPaulo() {
         <Grid item xs={12} md={6}>
           <Card sx={{ borderRadius: "1rem", overflow: "hidden", boxShadow: 3 }}>
             <img
-              src="photos/0TS_5060.jpg"
+              // src="photos/0TS_5060.jpg"
+              src="photos/481660407_3974711766095040_3240459738781734265_n.jpg"
               style={{ width: "100%", height: "auto", display: "block" }}
             />
           </Card>
