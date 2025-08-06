@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent, Typography, Grid, Box } from "@mui/material";
 import { Server, BarChart3, MonitorSmartphone, Bug } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function AboutSection() {
   const features = [
@@ -103,7 +104,18 @@ export function AboutSection() {
           lineHeight={1.6}
           mt={2}
         >
-          In my free time I volunteer at <strong> Projekt a Paulo</strong>.
+          In my free time I volunteer at{" "}
+          <Link
+            to="/projectapaulo"
+            style={{
+              fontWeight: "bold",
+              color: "#60a5fa",
+              textDecoration: "none",
+            }}
+          >
+            Projekt a Paulo
+          </Link>
+          .
         </Typography>
       </Box>
 

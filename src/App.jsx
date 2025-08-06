@@ -1,12 +1,14 @@
 import React from "react";
-import { CssBaseline, Box } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import ProjectAPaulo from "./pages/ProjectAPaulo";
 import Footer from "./components/Footer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+import { CssBaseline, Box } from "@mui/material";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const darkTheme = createTheme({
   palette: {
@@ -25,11 +27,23 @@ const darkTheme = createTheme({
   },
 });
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+
 export default function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Router>
+      <BrowserRouter>
+       <ScrollToTop />
         <Box
           sx={{
             minHeight: "100vh",
@@ -38,10 +52,7 @@ export default function App() {
             flexDirection: "column",
           }}
         >
-          {/* Header */}
           <Topbar />
-
-          {/* Layout */}
           <Box sx={{ display: "flex", flexGrow: 1 }}>
             <Sidebar />
             <Box component="main" sx={{ flexGrow: 1, p: 3, mt: "64px" }}>
@@ -51,11 +62,9 @@ export default function App() {
               </Routes>
             </Box>
           </Box>
-
-          {/* Footer */}
           <Footer />
         </Box>
-      </Router>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

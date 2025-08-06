@@ -7,9 +7,28 @@ import {
   IconButton,
   Divider,
 } from "@mui/material";
-import { GitHub, LinkedIn, Mail, Favorite } from "@mui/icons-material";
+import { GitHub, LinkedIn, Mail } from "@mui/icons-material";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (hash) => (event) => {
+    event.preventDefault();
+
+    if (location.pathname === "/") {
+      // Jesteśmy na stronie głównej — przewiń do sekcji
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Inna strona — przejdź na główną z hash, scroll zrobi Home.jsx
+      navigate(`/${hash}`);
+    }
+  };
+
   return (
     <Box
       component="footer"
@@ -64,6 +83,7 @@ export default function Footer() {
                     "&:hover": { color: "common.white" },
                     cursor: "pointer",
                   }}
+                  onClick={handleNavClick(href)}
                 >
                   {label}
                 </Link>
