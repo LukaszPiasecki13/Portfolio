@@ -8,7 +8,8 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
-import { Message, Download } from "@mui/icons-material";
+
+import { Instagram, Facebook } from "lucide-react"; // Import social media icons
 
 export default function ProjectAPaulo() {
   return (
@@ -197,9 +198,65 @@ export default function ProjectAPaulo() {
             />
           </Card>
         </Grid>
-
-
-
+        <Box mt={6}>
+          <Typography
+            variant="h5"
+            fontWeight="bold"
+            gutterBottom
+            mb={3}
+            sx={{ color: "white" }}
+          >
+            Look for more
+          </Typography>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={3}
+            justifyContent="center"
+          >
+            <Button
+              variant="outlined"
+              size="large"
+              startIcon={<Instagram />}
+              sx={{
+                px: 5,
+                py: 2,
+                borderColor: "#E1306C",
+                color: "#E1306C",
+                "&:hover": {
+                  backgroundColor: "rgba(225, 48, 108, 0.1)",
+                  borderColor: "#E1306C",
+                },
+              }}
+              component="a"
+              href="https://www.instagram.com/projekt_a_paulo/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </Button>
+            <Button
+              variant="outlined"
+              size="large"
+              startIcon={<Facebook />}
+              sx={{
+                px: 5,
+                py: 2,
+                borderColor: "#1877F2",
+                color: "#1877F2",
+                "&:hover": {
+                  backgroundColor: "rgba(24, 119, 242, 0.1)",
+                  borderColor: "#1877F2",
+                },
+              }}
+              component="a"
+              href="https://www.facebook.com/ProjektaPaulo/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </Button>
+          </Stack>
+        </Box>
       </Box>
     </Box>
   );
