@@ -52,6 +52,7 @@ export function HelloSection() {
         >
           <Button
             variant="contained"
+            href="#contact"
             size="large"
             startIcon={<Message />}
             sx={{ px: 5, py: 2, fontSize: "1.125rem" }}
@@ -61,6 +62,7 @@ export function HelloSection() {
           <Button
             variant="outlined"
             size="large"
+            onClick={() => window.open('/pdfs/Lukasz Piasecki - Python Developer - CV_2025.pdf', "_blank")}
             startIcon={<Download />}
             sx={{ px: 5, py: 2, fontSize: "1.125rem" }}
           >
