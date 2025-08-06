@@ -35,7 +35,6 @@ export default function Sidebar() {
             src="images/my_image.png"
             sx={{ width: 96, height: 96, mx: "auto", mb: 2 }}
           >
-            JK
           </Avatar>
           <Typography
             variant="h6"

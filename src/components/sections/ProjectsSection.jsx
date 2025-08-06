@@ -19,7 +19,7 @@ export function ProjectsSection() {
       title: "Fund Tracker",
       description:
         "Financial investment tracking app using Django REST backend with JWT authentication and React frontend built Material-UI. Features include real-time portfolio analytics powered by Recharts, Yahoo Finance API integration, and secure state management with Axios.",
-      image: "public/FundTracker.png",
+      image: "images/FundTracker.png",
       technologies: ["Django REST", "React.js", "Yahoo API", "Pandas", "JWT", "PostgreSQL"],
       liveUrl: "#",
       githubUrl: "https://github.com/LukaszPiasecki13/Django_React_FoundTracker",
@@ -28,7 +28,7 @@ export function ProjectsSection() {
       title: "Debug Reporting App - internal ",
       description:
         "I'm responsible for developing back-end modules based on Django REST. It offers JWT-based authentication, versioned API endpoints, Swagger documentation (drf-yasg), and integration with external REST APIs. It includes advanced data analysis using phenomenon modeling, precise error handling, and asynchronous data retrieval.",
-      image: "public/abb.png",
+      image: "images/abb.png",
       technologies: [
         "Django REST",
         "Pandas",
@@ -45,7 +45,7 @@ export function ProjectsSection() {
       title: "URL Shortener",
       description:
         "A full-stack URL shortening service featuring a Django REST API backend and a modern React frontend. The backend includes rate limiting per IP address using Redis to prevent abuse",
-      image: "public/shortener.png",
+      image: "images/shortener.png",
       technologies: ["Django REST", "React.js", "PostgreSQL", "Redis"],
       liveUrl:
         "https://shortener-mgn9weh6z-lukaszpiasecki99-gmailcoms-projects.vercel.app/",
