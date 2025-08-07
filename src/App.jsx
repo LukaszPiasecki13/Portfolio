@@ -9,6 +9,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline, Box } from "@mui/material";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Analytics } from '@vercel/analytics/react';
 
 const darkTheme = createTheme({
   palette: {
@@ -65,6 +66,8 @@ export default function App() {
           <Footer />
         </Box>
       </BrowserRouter>
+      <Analytics />
     </ThemeProvider>
+    
   );
 }
