@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import Link from "@mui/material/Link";
 import {
   Card,
   CardContent,
@@ -12,22 +14,58 @@ import {
   Stack,
 } from "@mui/material";
 import { ExternalLink, Github } from "lucide-react";
+import { ProjectExtendedPopUp } from "../ProjectExtendedPopUp/ProjectExtendedPopUp";
 
 export function ProjectsSection() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const projects = [
     {
       title: "Fund Tracker",
-      description:
-        "Financial investment tracking app using Django REST backend with JWT authentication and React frontend built Material-UI. Features include real-time portfolio analytics powered by Recharts, Yahoo Finance API integration, and secure state management with Axios.",
+      description: (
+        <>
+          {" "}
+          Financial investment tracking app using <strong>
+            Django REST
+          </strong>{" "}
+          backend with <strong>JWT</strong> authentication and{" "}
+          <strong>React</strong> frontend built <strong>Material-UI</strong>.
+          Features include real-time portfolio analytics powered by{" "}
+          <strong>Recharts, Yahoo Finance API</strong> integration, and secure
+          state management with <strong>Axios</strong>.
+        </>
+      ),
+      extendedDescription: true,
+
       image: "images/FundTracker.png",
-      technologies: ["Django REST", "React.js", "Yahoo API", "Pandas", "JWT", "PostgreSQL"],
+      technologies: [
+        "Django REST",
+        "React.js",
+        "Yahoo API",
+        "Pandas",
+        "JWT",
+        "PostgreSQL",
+      ],
       liveUrl: "#",
-      githubUrl: "https://github.com/LukaszPiasecki13/Django_React_FoundTracker",
+      githubUrl:
+        "https://github.com/LukaszPiasecki13/Django_React_FoundTracker",
     },
     {
-      title: "Debug Reporting App - internal ",
-      description:
-        "I'm responsible for developing back-end modules based on Django REST. It offers JWT-based authentication, versioned API endpoints, Swagger documentation (drf-yasg), and integration with external REST APIs. It includes advanced data analysis using phenomenon modeling, precise error handling, and asynchronous data retrieval.",
+      title: "Debug Reporting App - internal",
+      description: (
+        <>
+          I'm responsible for developing back-end modules based on{" "}
+          <strong>Django REST</strong>. It offers <strong>JWT-based</strong>{" "}
+          authentication, versioned API endpoints, <strong>Swagger</strong>{" "}
+          documentation (drf-yasg), and integration with external{" "}
+          <strong>REST APIs</strong>. It includes advanced data analysis using
+          phenomenon modeling, precise error handling, and asynchronous data
+          retrieval.
+        </>
+      ),
+
       image: "images/abb.png",
       technologies: [
         "Django REST",
@@ -39,12 +77,20 @@ export function ProjectsSection() {
       ],
       liveUrl: "#",
       githubUrl: "#",
+      extendedDescription: true,
     },
 
     {
       title: "URL Shortener",
-      description:
-        "A full-stack URL shortening service featuring a Django REST API backend and a modern React frontend. The backend includes rate limiting per IP address using Redis to prevent abuse",
+      description: (
+        <>
+          A full-stack URL shortening applicaton featuring a{" "}
+          <strong>Django REST API</strong> backend and a <strong>React</strong>{" "}
+          frontend. The backend includes rate limiting per IP address using{" "}
+          <strong>Redis</strong> to prevent abuse.
+        </>
+      ),
+
       image: "images/shortener.png",
       technologies: ["Django REST", "React.js", "PostgreSQL", "Redis"],
       liveUrl:
@@ -135,6 +181,10 @@ export function ProjectsSection() {
                   <Typography variant="body2" color="text.secondary">
                     {project.description}
                   </Typography>
+
+                  {project.extendedDescription && (
+                    <ProjectExtendedPopUp project={project} />
+                  )}
                 </Box>
 
                 <Stack
